@@ -12,4 +12,8 @@
         <constructor-arg value="Katty"/>
     </bean>
 
+    <bean id="musicBean"
+    class="org.springframework.RockMusic">
+    </bean>
+
 </beans>
