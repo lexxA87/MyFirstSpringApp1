@@ -14,13 +14,25 @@
         <constructor-arg value="Katty"/>
     </bean>
 
-    <bean id="musicBean"
+    <bean id="classicalMusicBean"
     class="org.springframework.ClassicalMusic">
+    </bean>
+    <bean id="rockMusicBean"
+          class="org.springframework.RockMusic">
+    </bean>
+    <bean id="countryMusicBean"
+          class="org.springframework.CountryMusic">
     </bean>
 
     <bean id="musicPlayer"
     class="org.springframework.MusicPlayer">
-        <property name="music" ref="musicBean"/>
+        <property name="musicList">
+            <list>
+                <ref bean="classicalMusicBean"/>
+                <ref bean="rockMusicBean"/>
+                <ref bean="countryMusicBean"/>
+            </list>
+        </property>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
