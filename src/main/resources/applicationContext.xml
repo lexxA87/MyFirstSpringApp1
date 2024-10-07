@@ -15,7 +15,8 @@
     </bean>
 
     <bean id="classicalMusicBean"
-    class="org.springframework.ClassicalMusic">
+    class="org.springframework.ClassicalMusic"
+    factory-method="getClassicalMusic">
     </bean>
     <bean id="rockMusicBean"
           class="org.springframework.RockMusic"
