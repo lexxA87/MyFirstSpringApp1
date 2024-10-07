@@ -18,7 +18,9 @@
     class="org.springframework.ClassicalMusic">
     </bean>
     <bean id="rockMusicBean"
-          class="org.springframework.RockMusic">
+          class="org.springframework.RockMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy">
     </bean>
     <bean id="countryMusicBean"
           class="org.springframework.CountryMusic">
@@ -26,7 +28,9 @@
 
     <bean id="musicPlayer"
     class="org.springframework.MusicPlayer"
-    scope="prototype">
+    scope="prototype"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy">
         <property name="musicList">
             <list>
                 <ref bean="classicalMusicBean"/>
