@@ -1,4 +1,4 @@
-package org.springframework;
+package org.tutorial;
 
 public class TestBean {
     private String name;
