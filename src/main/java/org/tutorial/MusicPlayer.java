@@ -50,10 +50,12 @@ public class MusicPlayer {
 //        System.out.println("Playing: " + music.getSong());
 //    }
 
-    public void playMusicList() {
+    public String playMusicList() {
+        StringBuilder str = new StringBuilder();
         for (Music music : musicList) {
-            System.out.println("Playing: " + music.getSong());
+            str.append("Playing: ").append(music.getSong()).append("\n");
         }
+        return str.toString();
     }
 
     private void doMyInit() {

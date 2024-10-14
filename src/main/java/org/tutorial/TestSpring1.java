@@ -13,13 +13,15 @@ public class TestSpring1 {
 //        Music music = context.getBean("musicBean", Music.class);
 //        MusicPlayer musicPlayer = new MusicPlayer(music);
 
-       MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+       //MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
        // MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
+        Computer computer = context.getBean("computer", Computer.class);
+        System.out.println(computer);
         //secondMusicPlayer.setVolume(39);
 
         //System.out.println(testBean);
-        musicPlayer.playMusicList();
+        //musicPlayer.playMusicList();
         //musicPlayer.playMusic();
         System.out.println("* * * * *");
         //boolean comp = musicPlayer == secondMusicPlayer;
