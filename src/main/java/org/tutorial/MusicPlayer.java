@@ -2,6 +2,8 @@ package org.tutorial;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.List;
 import java.util.Random;
 
 @Component
+@Scope("singleton")
 public class MusicPlayer {
 
 
@@ -18,7 +21,10 @@ public class MusicPlayer {
     private List<String> rockMusic = new ArrayList<>();
     private List<String> classicalMusic = new ArrayList<>();
     private List<String> countryMusic = new ArrayList<>();
+
+    @Value("${musicPlayer.name}")
     private String name;
+    @Value("${musicPlayer.volume}")
     private int volume;
 
     // Inversion of control (IoC)
