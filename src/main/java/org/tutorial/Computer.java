@@ -8,6 +8,10 @@ public class Computer {
     private int id;
     private MusicPlayer musicPlayer;
 
+    public void playSomeMusic(MusicGenres genre) {
+        musicPlayer.playMusicForGenre(genre);
+    }
+
     @Autowired
     public Computer(MusicPlayer musicPlayer) {
         this.id = 10;

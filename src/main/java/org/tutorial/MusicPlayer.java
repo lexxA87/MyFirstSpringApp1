@@ -1,10 +1,12 @@
 package org.tutorial;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class MusicPlayer {
@@ -13,6 +15,9 @@ public class MusicPlayer {
     //private Music music;
     @Autowired
     private List<Music> musicList = new ArrayList<>();
+    private List<String> rockMusic = new ArrayList<>();
+    private List<String> classicalMusic = new ArrayList<>();
+    private List<String> countryMusic = new ArrayList<>();
     private String name;
     private int volume;
 
@@ -20,7 +25,17 @@ public class MusicPlayer {
 //    public MusicPlayer(Music music) {
 //        this.music = music;
 //    }
-    public MusicPlayer() {}
+    //public MusicPlayer() {}
+
+    @Autowired
+    public MusicPlayer(@Qualifier("rockMusic") Music rockMusic,
+                       @Qualifier("classicalMusic") Music classicalMusic,
+                       @Qualifier("countryMusic") Music countryMusic) {
+        this.rockMusic = rockMusic.getSongs();
+        this.classicalMusic = classicalMusic.getSongs();
+        this.countryMusic = countryMusic.getSongs();
+    }
+
 
 //    public void setMusicList(List<Music> musicList) {
 //        this.musicList = musicList;
@@ -56,6 +71,26 @@ public class MusicPlayer {
             str.append("Playing: ").append(music.getSong()).append("\n");
         }
         return str.toString();
+    }
+
+    public void playMusicForGenre(MusicGenres genre) {
+        Random random = new Random();
+        int i = random.nextInt( 3);
+
+        switch (genre) {
+            case ROCK:
+                System.out.println("Playing: " + rockMusic.get(i));
+                break;
+            case CLASSIC:
+                System.out.println("Playing: " + classicalMusic.get(i));
+                break;
+            case COUNTRY:
+                System.out.println("Playing: " + countryMusic.get(i));
+                break;
+            default:
+                System.out.println("Not found this genre...");
+                break;
+        }
     }
 
     private void doMyInit() {

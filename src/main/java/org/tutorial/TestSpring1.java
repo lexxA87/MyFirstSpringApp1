@@ -24,6 +24,11 @@ public class TestSpring1 {
         //musicPlayer.playMusicList();
         //musicPlayer.playMusic();
         System.out.println("* * * * *");
+//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//        musicPlayer.playMusicForGenre(MusicGenres.CLASSIC);
+//        musicPlayer.playMusicForGenre(MusicGenres.ROCK);
+//        musicPlayer.playMusicForGenre(MusicGenres.COUNTRY);
+        computer.playSomeMusic(MusicGenres.ROCK);
         //boolean comp = musicPlayer == secondMusicPlayer;
         //System.out.println(comp);
         //System.out.println(musicPlayer);
